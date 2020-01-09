@@ -1,0 +1,35 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+@section Scripts {
+
+    <script type="text/javascript">
+
+        function BuscarSKU() {
+
+            var sku = $('#txtSKU').val();
+
+            if (sku == "")
+            {
+                alert ("Debe introducir un SKU");
+                return;
+            }
+
+            window.location.replace("/Home/Sku/" + sku);
+
+        }
+
+    </script>
+}
+
+        <div class="text-center">
+            <h1 class="display-4">Bienvenido</h1>
+            </br>
+            <div>
+                <span style="width:500px;">Introduzca un SKU para buscar</span>
+                <input type="text" id="txtSKU" />
+                <button id="btnBuscarSKU" type="button" class="btn btn-primary" onclick="BuscarSKU()">Buscar</button>
+            </div>
+        </div >

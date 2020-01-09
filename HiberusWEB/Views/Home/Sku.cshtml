@@ -1,0 +1,67 @@
+﻿@model IEnumerable<HiberusWEB.Models.Transaction>
+
+@{
+    ViewData["Title"] = "SKU " + ViewBag.SkuSeleccionado;
+}
+
+@section Scripts {
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+
+    <link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css" rel="stylesheet" />
+
+    <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js "></script>
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+
+            table = $('#tableSKU').dataTable({});
+
+        });
+
+    </script>
+}
+
+
+
+<h1>SKU @ViewBag.SkuSeleccionado</h1>
+<br />
+<h2>Suma total: @ViewBag.SumaTotal EUR</h2>
+<br />
+
+<table class="table" id="tableSKU">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Sku)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Amount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Currency)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sku)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Amount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Currency)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
